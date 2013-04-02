@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: instabooks_development
+  pool: 5
+  username: brunochagas
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: instabooks_test
+  pool: 5
+  username: brunochagas
+  password:
+
+production:
+  adapter: brunochagas
+  encoding: unicode
+  database: instabooks_production
+  pool: 5
+  username: instabooks
+  password:
