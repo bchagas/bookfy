@@ -1,0 +1,14 @@
+<%= link_to 'Back', albums_path %>
+<hr>
+<%= semantic_form_for @album do |f| %>
+  <%= f.fields_for :photo do |f| %>
+    <% @recent_media.each do |media| %>
+      <%= f.input :name, input_html: { value: 'media.images.thumbnail.url' } %>
+    <% end %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+<hr>
