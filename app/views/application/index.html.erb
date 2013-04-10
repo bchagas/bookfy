@@ -2,6 +2,9 @@
   <% if current_user %>
     Signed in as <%= current_user.name %>
     <%= link_to "Sign out", signout_path %>
+    <% @recent_media.each do |media| %>
+      <%= image_tag(media.images.thumbnail.url) %>
+    <% end %>
   <% else %>
     <%= link_to "Sign in with Instagram", "/auth/instagram"%>
   <% end %>

@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def index; end
+  def index
+    @recent_media = current_user.instagram.user_recent_media(:count => -1)
+  end
 
   private
 
