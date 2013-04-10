@@ -4,6 +4,8 @@ Instabooks::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
-  #resources :photos
+  resources :albums do
+    resources :photos
+  end
   root to: 'application#index'
 end
