@@ -2,12 +2,13 @@ class AlbumsController < ApplicationController
   before_filter :find_recent_media
 
   def index
-    @albums = Album.all
+    user_id = current_user.id
+    @albums = Album.where(user_id: user_id)
   end
 
   def show
     @album = Album.find(params[:id])
-    @photos = Photo.where(:album_id => params[:id])
+    @photos = Photo.where(album_id:  params[:id])
   end
 
   def new
