@@ -1,17 +1,25 @@
 class PhotosController < AlbumsController
   before_filter :find_recent_media, :find_album
-  def index; end
   def create
     @photo = Photo.new
-    @photo.album(params[:album_id])
-    @photo.update_attributes(params[:photos])
+    @photos = params[:album][:photos]
+    @photos.map { |photo| Photo.new(photo).save }
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to root_path, :notice => 'Album created' }
+        format.html { redirect_to album_path(@album), :notice => 'Album created' }
       else
         format.html { render action: :new, :error => @photo.errors.full_messages.to_sentence }
       end
+    end
+  end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+
+    respond_to do |format|
+      format.html { redirect_to album_path(@album), :notice => 'Album created' }
     end
   end
 

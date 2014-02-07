@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_filter :find_album
+  before_filter :find_recent_media
 
   def index
     @albums = Album.all
@@ -7,6 +7,14 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
+    @photos = Photo.where(:album_id => params[:id])
+  end
+
+  def new
+    @album = Album.new
+    @recent_media.each do |media|
+      @album.photos.build(name: media.images.thumbnail.url)
+    end
   end
 
   def create
@@ -14,26 +22,30 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-        format.html { redirect_to root_path, :notice => 'Album created' }
+        format.html { redirect_to albums_path, :notice => 'Album created' }
       else
         format.html { render action: :new, :error => @album.errors.full_messages.to_sentence }
       end
     end
   end
 
-  def update
+  def destroy
+    @album = Album.find(params[:id])
+    @album.destroy
+
     respond_to do |format|
-      if @album.update_attributes(params[:photos])
-        format.html { redirect_to album_path(@album), :notice => 'Photos added to album' }
-      else
-        format.html { render action: :new, :error => @photo.errors.full_messages.to_sentence }
-      end
+      format.html { redirect_to albums_path, :notice => 'Album created' }
     end
   end
 
-  private
-
-  def find_album
+  def update
     @album = Album.find(params[:id])
+    respond_to do |format|
+      if @album.save
+        format.html { redirect_to album_path(@album), :notice => 'Photos added to album' }
+      else
+        format.html { render action: :new, :error => @album.errors.full_messages.to_sentence }
+      end
+    end
   end
 end

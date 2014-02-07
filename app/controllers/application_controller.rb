@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def find_recent_media
-    @recent_media = current_user.instagram.user_recent_media(:count => -1)
+    @recent_media = current_user.instagram.user_recent_media(:count => 10)
   end
 end
