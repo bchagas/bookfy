@@ -1,5 +1,15 @@
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', albums_path %>
 |
 <%= link_to 'Add photos', new_album_photo_path(@album) %>
 <hr>
 <%= @album.name %>
+<%= link_to 'Remove Album', album_path(@album), confirm: 'Are you sure?', method: :delete %>
+<br>
+<ul>
+  <% @photos.each do |photo| %>
+  <li>
+    <%= image_tag photo.name %>
+    <%= link_to 'Remove', album_photo_path(@album, photo.id), confirm: 'Are you sure?', method: :delete %>
+  </li>
+  <% end %>
+</ul>

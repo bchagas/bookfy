@@ -1,0 +1,4 @@
+<%= f.fields_for "photos[]", photo do |photo| %>
+  <%= photo.input :name %>
+  <%= photo.input :album_id, as: :hidden, input_html: { value: params[:album_id] } %>
+<% end %>
