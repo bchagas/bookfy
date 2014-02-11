@@ -7,5 +7,5 @@ test:
   client_secret: c102795b66184f9aa5886f0a01674cbe
 
 production:
-  client_id: efcbe2de8b4b46d79da5a5092ba20857
-  client_secret: c102795b66184f9aa5886f0a01674cbe
+  client_id: 17ff221d160342faad10a246d706672d
+  client_secret: c4145ad494c94eff944cbb546ea9758a
