@@ -2,8 +2,10 @@ class PhotosController < AlbumsController
   before_filter :find_recent_media, :find_album
   def create
     @photo = Photo.new
-    @photos = params[:album][:photos]
-    @photos.map { |photo| Photo.new(photo).save }
+    @photos = params[:album][:photos][:url]
+    album_id = params[:album_id]
+    debugger
+    @photos.map { |photo| Photo.create(:url => photo, :album_id => album_id).save }
 
     respond_to do |format|
       if @photo.save

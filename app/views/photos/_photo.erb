@@ -1,4 +1,3 @@
-<%= f.fields_for "photos[]", photo do |photo| %>
-  <%= photo.input :url %>
-  <%= photo.input :album_id, as: :hidden, input_html: { value: params[:album_id] } %>
+<%= f.fields_for "photos" do |photo| %>
+  <%= photo.input :url, as: :check_boxes, collection: @recent_media.map { |p| [p.images.thumbnail.url, p.images.thumbnail.url]  } %>
 <% end %>
