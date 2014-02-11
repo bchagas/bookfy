@@ -1,4 +1,4 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :name, :album_id
+  attr_accessible :url, :album_id
   has_many :albums
 end

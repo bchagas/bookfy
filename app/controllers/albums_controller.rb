@@ -14,7 +14,7 @@ class AlbumsController < ApplicationController
   def new
     @album = Album.new
     @recent_media.each do |media|
-      @album.photos.build(name: media.images.thumbnail.url)
+      @album.photos.build(url: media.images.thumbnail.url)
     end
   end
 
