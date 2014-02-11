@@ -4,7 +4,6 @@ class PhotosController < AlbumsController
     @photo = Photo.new
     @photos = params[:album][:photos][:url]
     album_id = params[:album_id]
-    debugger
     @photos.map { |photo| Photo.create(:url => photo, :album_id => album_id).save }
 
     respond_to do |format|
