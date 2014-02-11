@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'formtastic'
 gem 'instagram'
 gem 'omniauth-instagram'
-gem 'formtastic'
 gem 'pg'
 gem 'rails', '3.2.13'
+gem 'thin'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
@@ -15,5 +16,4 @@ end
 
 group :development do
   gem 'debugger'
-  gem 'thin'
 end
