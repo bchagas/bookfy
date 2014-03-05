@@ -1,5 +1,6 @@
 class PhotosController < AlbumsController
-  before_filter :find_recent_media, :find_album
+  before_filter :find_album
+
   def create
     @photo = Photo.new
     @photos = params[:album][:photos][:url]
@@ -23,6 +24,8 @@ class PhotosController < AlbumsController
       format.html { redirect_to album_path(@album), :notice => 'Album created' }
     end
   end
+
+  private
 
   def find_album
     @album = Album.find(params[:album_id])
