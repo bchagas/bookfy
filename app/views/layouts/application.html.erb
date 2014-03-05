@@ -8,7 +8,21 @@
   </head>
   <body>
 
-    <%= yield %>
+  <div id="user_nav">
+    <% if current_user %>
+      Signed in as <%= current_user.name %>
+      <%= link_to "Create album", new_album_path %>
+      |
+      <%= link_to "Show albums", albums_path %>
+      |
+      <%= link_to "Sign out", signout_path %>
+      <hr>
+    <% else %>
+      <%= link_to "Sign in with Instagram", "/auth/instagram"%>
+    <% end %>
+  </div>
+
+  <%= yield %>
 
   </body>
 </html>
