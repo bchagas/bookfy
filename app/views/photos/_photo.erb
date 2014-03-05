@@ -1,3 +1,3 @@
 <%= f.fields_for "photos" do |photo| %>
-  <%= photo.input :url, as: :check_boxes, collection: @recent_media.map { |p| [p.images.thumbnail.url, p.images.thumbnail.url]  } %>
+<%= photo.input :url, as: :check_boxes, collection: @recent_media.map { |p| [("#{image_tag(p.images.thumbnail.url)}<p>#{p.caption.text}</p>").html_safe, p.images.thumbnail.url]  } %>
 <% end %>
