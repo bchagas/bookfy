@@ -3,9 +3,9 @@ class PhotosController < AlbumsController
 
   def create
     @photo = Photo.new
-    @photos = params[:album][:photos][:url].reject!{ |p| p == "" }
+    @photos = params[:album][:photos][:photo_id].reject!{ |p| p == "0" }
     album_id = params[:album_id]
-    @photos.map { |photo| Photo.create(:url => photo, :album_id => album_id).save }
+    @photos.map { |photo| Photo.create(:photo_id => photo, :album_id => album_id).save }
 
     respond_to do |format|
       if @photo.save
@@ -17,7 +17,8 @@ class PhotosController < AlbumsController
   end
 
   def destroy
-    @photo = Photo.find(params[:id])
+    photo = Photo.find_by_photo_id(params[:id])
+    @photo = Photo.find(photo.id)
     @photo.destroy
 
     respond_to do |format|

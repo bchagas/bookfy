@@ -1,3 +1,3 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :url, :album_id
+  attr_accessible :photo_id, :album_id
 end

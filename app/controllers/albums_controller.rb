@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_filter :find_recent_media, except: :show
+  before_filter :user_photos, except: :show
 
   def index
     user_id = current_user.id
@@ -8,17 +8,18 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.friendly_id.find(params[:id])
-    @photos = Photo.where(album_id:  params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @album }
+    photos = Photo.where(album_id: params[:id])
+    current_user ||= User.find(@album.user_id)
+    @photos = []
+    photos.map do |photo|
+      @photos << current_user.instagram.media_item(photo.photo_id)
     end
   end
 
   def new
     @album = Album.new
-    @recent_media.each do |media|
-      @album.photos.build(url: media.images.thumbnail.url)
+    @user_photos.each do |media|
+      @album.photos.build(photo_id: media.id)
     end
   end
 

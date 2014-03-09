@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def load_photos
     max_id = params[:max_id]
-    find_recent_media(max_id: max_id)
+    user_photos(max_id: max_id)
   end
 
   private
@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  def find_recent_media(options = {count: 30})
-    @recent_media = current_user.instagram.user_recent_media(options)
-    @page_max_id = @recent_media.pagination.next_max_id
+  def user_photos(options = {count: 30})
+    @user_photos = current_user.instagram.user_recent_media(options)
+    @page_max_id = @user_photos.pagination.next_max_id
   end
 end

@@ -1,7 +1,7 @@
-<% @recent_media.each do |p| %>
+<% @user_photos.each do |p| %>
   <li class="choice">
-    <label for="album_photos_url_<%= p.images.thumbnail.url %>">
-      <input id="album_photos_url_<%= p.images.thumbnail.url %>" name="album[photos][url][]" type="checkbox" value="<%= p.images.thumbnail.url %>">
+    <label for="<%= p.id %>">
+      <input id="<%= p.id %>" name="album[photos][photo_id][]" type="checkbox" value="<%= p.id %>">
       <img src="<%= p.images.thumbnail.url %>">
       <%= content_tag(:p, p.caption.text) unless p.caption.nil? %>
     </label>

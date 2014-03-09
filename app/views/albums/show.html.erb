@@ -12,7 +12,12 @@
 <ul>
   <% @photos.each do |photo| %>
   <li>
-    <%= image_tag photo.url %>
+    <%= link_to image_tag(photo.images.thumbnail.url), photo.images.standard_resolution.url %>
+
+    <% unless photo.caption.nil? %>
+      <p><%= photo.caption.text %></p>
+    <% end %>
+
     <% if current_user %>
       <%= link_to 'Remove', album_photo_path(@album, photo.id), confirm: 'Are you sure?', method: :delete %>
     <% end %>

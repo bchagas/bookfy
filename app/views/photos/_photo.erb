@@ -1,5 +1,9 @@
 <%= f.fields_for "photos" do |photo| %>
-  <%= photo.input :url, as: :check_boxes, collection: @recent_media.map { |p| [("#{image_tag(p.images.thumbnail.url)}<p>#{p.caption.text unless p.caption.nil?}</p>").html_safe, p.images.thumbnail.url]  } %>
+  <ol class='photos'>
+  <% @user_photos.each do |p| %>
+    <%= photo.input :photo_id, as: :boolean, input_html: { id: p.id, value: p.id, name: 'album[photos][photo_id][]' }, label: "#{image_tag(p.images.thumbnail.url)} #{p.caption.text}".html_safe %>
+  <% end %>
+</ol>
 <% end %>
 
 <%= link_to 'Load', load_photos_path(max_id: @page_max_id), remote: true, id: 'load-more' %>
