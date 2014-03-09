@@ -8,4 +8,6 @@ Instabooks::Application.routes.draw do
     resources :photos
   end
   root to: 'application#index'
+
+  get 'load_photos', to: 'application#load_photos'
 end

@@ -1,0 +1,9 @@
+<% @recent_media.each do |p| %>
+  <li class="choice">
+    <label for="album_photos_url_<%= p.images.thumbnail.url %>">
+      <input id="album_photos_url_<%= p.images.thumbnail.url %>" name="album[photos][url][]" type="checkbox" value="<%= p.images.thumbnail.url %>">
+      <img src="<%= p.images.thumbnail.url %>">
+      <%= content_tag(:p, p.caption.text) unless p.caption.nil? %>
+    </label>
+  </li>
+<% end %>

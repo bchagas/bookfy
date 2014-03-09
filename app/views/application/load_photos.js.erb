@@ -1,0 +1,2 @@
+$('.choices-group').append("<%=j render 'photos/fields' %>");
+$('#load-more').attr("href", '<%= load_photos_path(max_id: @page_max_id) %>');

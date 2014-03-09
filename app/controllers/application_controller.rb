@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def load_photos
+    max_id = params[:max_id]
+    find_recent_media(max_id: max_id)
+  end
+
   private
 
   def current_user
