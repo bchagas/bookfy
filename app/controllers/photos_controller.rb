@@ -3,7 +3,7 @@ class PhotosController < AlbumsController
 
   def create
     @photo = Photo.new
-    @photos = params[:album][:photos][:url]
+    @photos = params[:album][:photos][:url].reject!{ |p| p == "" }
     album_id = params[:album_id]
     @photos.map { |photo| Photo.create(:url => photo, :album_id => album_id).save }
 
