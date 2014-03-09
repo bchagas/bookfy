@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_filter :find_recent_media
+  before_filter :find_recent_media, except: :show
 
   def index
     user_id = current_user.id
@@ -7,8 +7,12 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find(params[:id])
+    @album = Album.friendly_id.find(params[:id])
     @photos = Photo.where(album_id:  params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @album }
+    end
   end
 
   def new

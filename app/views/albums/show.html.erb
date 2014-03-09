@@ -1,15 +1,21 @@
-<%= link_to 'Back', albums_path %>
-|
-<%= link_to 'Add photos', new_album_photo_path(@album) %>
+<% if current_user %>
+  <%= link_to 'Back', albums_path %>
+  |
+  <%= link_to 'Add photos', new_album_photo_path(@album) %>
+<% end %>
 <hr>
 <%= @album.name %>
-<%= link_to 'Remove Album', album_path(@album), confirm: 'Are you sure?', method: :delete %>
+<% if current_user %>
+  <%= link_to 'Remove Album', album_path(@album), confirm: 'Are you sure?', method: :delete %>
+<% end %>
 <br>
 <ul>
   <% @photos.each do |photo| %>
   <li>
     <%= image_tag photo.url %>
-    <%= link_to 'Remove', album_photo_path(@album, photo.id), confirm: 'Are you sure?', method: :delete %>
+    <% if current_user %>
+      <%= link_to 'Remove', album_photo_path(@album, photo.id), confirm: 'Are you sure?', method: :delete %>
+    <% end %>
   </li>
   <% end %>
 </ul>

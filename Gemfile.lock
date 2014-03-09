@@ -57,6 +57,8 @@ GEM
       faraday (>= 0.7.4, < 0.9)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    friendly_id (4.0.10.1)
+      activerecord (>= 3.0, < 4.0)
     hashie (1.2.0)
     hike (1.2.1)
     httpauth (0.2.0)
@@ -159,6 +161,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   formtastic
+  friendly_id
   instagram
   jquery-rails
   omniauth-instagram

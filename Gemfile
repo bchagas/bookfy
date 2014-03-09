@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'formtastic'
+gem 'friendly_id'
 gem 'instagram'
 gem 'omniauth-instagram'
 gem 'pg'
