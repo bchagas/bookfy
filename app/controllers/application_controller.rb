@@ -16,7 +16,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  def find_recent_media
-    @recent_media = current_user.instagram.user_recent_media(:count => 10)
+  def find_recent_media(options = {count: 30})
+    @recent_media = current_user.instagram.user_recent_media(options)
+    @page_max_id = @recent_media.pagination.next_max_id
   end
 end
