@@ -21,8 +21,16 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def require_login
+    redirect_twreno root_path if current_user.nil?
+  end
+
   def user_photos(options = {count: 30})
-    @user_photos = current_user.instagram.user_recent_media(options)
-    @page_max_id = @user_photos.pagination.next_max_id
+    if current_user
+      @user_photos = current_user.instagram.user_recent_media(options)
+      @page_max_id = @user_photos.pagination.next_max_id
+    else
+      redirect_to root_path
+    end
   end
 end

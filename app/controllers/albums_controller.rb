@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
-  before_filter :user_photos, except: :show
+  before_filter :user_photos, except: [:show]
+  before_filter :require_login, except: [:index, :show]
 
   def index
     user_id = current_user.id
