@@ -1,7 +1,7 @@
 class Album < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
-  attr_accessible :name, :photos, :user_id
+  attr_accessible :name, :photos, :user_id, :slug
   belongs_to :user
   has_many :photos, :dependent => :destroy
 
