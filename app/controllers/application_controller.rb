@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def require_login
-    redirect_twreno root_path if current_user.nil?
+    redirect_to root_path if current_user.nil?
   end
 
   def user_photos(options = {count: 30})
