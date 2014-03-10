@@ -3,7 +3,7 @@
 <%= semantic_form_for @album, :url => album_photos_path do |f| %>
   <%= render partial: 'photo', :locals => { f: f } %>
   <%= f.actions do %>
-    <%= f.submit %>
+    <%= f.submit 'Add photos' %>
   <% end %>
 <% end %>
 <hr>
