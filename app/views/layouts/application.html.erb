@@ -18,6 +18,10 @@
       <%= link_to "Sign out", signout_path %>
       <hr>
     <% else %>
+      <hgroup>
+        <h1>Instabooks</h1>
+        <h2>Create photo albums from your Instagram photos</h2>
+      </hgroup>
       <%= link_to "Sign in with Instagram", "/auth/instagram"%>
     <% end %>
   </div>
