@@ -22,13 +22,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def require_login
-    respond_to do |format|
-      if current_user.nil?
-        format.html {
-          flash[:notice] = "You are not logged id"
-          redirect_to root_path, status: 301
-        }
-      end
+    unless current_user
+      flash[:notice] = "You are not logged id"
+      redirect_to root_path && return
     end
   end
 
