@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20140309122745) do
 
   create_table "photos", :force => true do |t|
     t.string   "photo_id"
-    t.string   "album_id"
+    t.integer  "album_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
