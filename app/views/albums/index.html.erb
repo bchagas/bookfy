@@ -1,5 +1,3 @@
-<%= link_to 'Back', root_path %>
-<hr>
-<% @albums.each do |album| %>
-  <%= link_to album.name, album_path(album) %>
-<% end %>
+<div class='row'>
+  <%= render 'partials/albums', albums: @albums, user: current_user %>
+</div>

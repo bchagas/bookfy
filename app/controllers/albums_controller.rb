@@ -5,6 +5,7 @@ class AlbumsController < ApplicationController
   def index
     user_id = current_user.id
     @albums = Album.where(user_id: user_id)
+    @user = current_user
   end
 
   def edit

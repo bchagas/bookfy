@@ -1,7 +1,5 @@
-<div>
-  <% if current_user %>
-    <% @albums.each do |album| %>
-      <%= link_to album.name, album_path(album) %>
-    <% end %>
-  <% end %>
-</div>
+<% if current_user %>
+  <div class='row'>
+    <%= render 'partials/albums', albums: @albums, user: @user %>
+  </div>
+<% end %>
