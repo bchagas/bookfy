@@ -1,9 +1,3 @@
 <%= semantic_form_for :album, url: albums_path do |f| %>
-  <%= f.inputs do %>
-    <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-    <%= f.input :name %>
-  <% end %>
-  <%= f.actions do %>
-    <%= f.submit %>
-  <% end %>
+  <%= render 'form' %>
 <% end %>

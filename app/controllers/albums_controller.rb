@@ -7,6 +7,10 @@ class AlbumsController < ApplicationController
     @albums = Album.where(user_id: user_id)
   end
 
+  def edit
+    @album = Album.friendly_id.find(params[:id])
+  end
+
   def show
     @album = Album.friendly_id.find(params[:id])
     photos = Photo.where(album_id: @album.id)
@@ -34,6 +38,14 @@ class AlbumsController < ApplicationController
         format.html { render action: :new, :error => @album.errors.full_messages.to_sentence }
       end
     end
+  end
+
+  def update
+    binding.pry
+
+    @album = Album.friendly_id.find(params[:id])
+    @album.update_attributes(params[:account])
+    respond_with @account
   end
 
   def destroy
