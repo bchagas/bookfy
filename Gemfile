@@ -9,10 +9,12 @@ gem 'rails', '3.2.13'
 gem 'thin'
 
 group :assets do
+  gem 'bootstrap-sass', '~> 3.1.1'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'font-awesome-rails'
+  gem 'jquery-rails'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'uglifier', '>= 1.0.3'
-  gem 'jquery-rails'
 end
 
 group :development do
