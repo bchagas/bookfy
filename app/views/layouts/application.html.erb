@@ -2,31 +2,31 @@
 <html>
   <head>
     <title>Instabooks</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "bootflat", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
 
   <div id="user_nav">
-    <% if current_user %>
-      Signed in as <%= current_user.name %>
-      <%= link_to "Create album", new_album_path %>
-      |
-      <%= link_to "Show albums", albums_path %>
-      |
-      <%= link_to "Sign out", signout_path %>
-      <hr>
-    <% else %>
-      <hgroup>
-        <h1>Instabooks</h1>
-        <h2>Create photo albums from your Instagram photos</h2>
-      </hgroup>
-      <%= link_to "Sign in with Instagram", "/auth/instagram"%>
-    <% end %>
+    <div class='container'>
+      <% if current_user %>
+        Signed in as <%= current_user.name %>
+        <%= link_to "Create album", new_album_path %>
+        |
+        <%= link_to "Show albums", albums_path %>
+        |
+        <%= link_to "Sign out", signout_path %>
+        <hr>
+      <% else %>
+        <hgroup class='logo'>
+          <h1><%= fa_icon 'book' %></h1>
+        </hgroup>
+        <%= link_to "Sign in with Instagram", "/auth/instagram"%>
+      <% end %>
+    </div>
   </div>
-
   <%= yield %>
-
   </body>
 </html>
