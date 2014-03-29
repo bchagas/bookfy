@@ -1,12 +1,6 @@
 <% albums.each do |album| %>
-  <div class="col-sm-6 col-md-3">
-    <%= link_to album_path(album) do %>
-    <div class="thumbnail">
-      <%= image_tag load_photo(album.photos.first.photo_id), class: 'img-rounded', data: { src: album.photos.first }  %>
-      <div class="caption text-center">
-        <h3><%= link_to album.name, album_path(album) %></h3>
-      </div>
-    </div>
-    <% end %>
-  </div>
+  <%= link_to album_path(album) do %>
+    <%= image_tag load_photo(album.photos.first.photo_id), class: 'img-rounded', data: { src: album.photos.first }  %>
+    <h3><%= link_to album.name, album_path(album) %></h3>
+  <% end %>
 <% end %>
