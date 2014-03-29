@@ -2,3 +2,31 @@
 @import neat
 @import font-awesome
 @import partials/reset
+@import partials/font-face
+@import partials/colors
+@import partials/buttons
+@import partials/logo
+
+body
+  background: $background
+
+.logo
+  height: 72px
+  top: 40%
+  left: 50%
+  margin-top: -36px
+  margin-left: -125px
+  text-align: center
+  position: absolute
+  width: 250px
+
+.sign-in
+  +simple-button
+  display: block
+  top: 60%
+  left: 50%
+  margin-top: -36px
+  margin-left: -150px
+  text-align: center
+  position: absolute
+  width: 300px
