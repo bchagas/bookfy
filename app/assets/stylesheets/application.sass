@@ -1,8 +1,7 @@
 @import bourbon
-@import neat
-@import font-awesome
-@import partials/reset
 @import partials/font-face
+@import neat
+@import partials/reset
 @import partials/colors
 @import partials/buttons
 @import partials/logo
@@ -10,7 +9,7 @@
 html, body
   +size(100% 100%)
 
-body
+body.home
   background: url('background.jpg') $background no-repeat center center fixed
   background-size: cover
 
@@ -24,16 +23,17 @@ body
 
 .home
   overflow: hidden
-  +size(100% 200px)
+  +size(100% auto)
   position: absolute
   text-align: left
-  left: 0
-  top: 15%
-  padding-left: 50px
+  left: 10px
+  top: 50px
   margin-top: -50px
 
-.sign-in
-  +sign-in-button($green)
-  padding: 10px 20px
-  text-align: center
-  width: 200px
+.connect
+  +connect-button($green)
+  padding:
+    left: 20px
+    right: 20px
+  line-height: 32px
+  width: 280px

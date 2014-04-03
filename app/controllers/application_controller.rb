@@ -2,7 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def index
+    @current_page = 'home'
+
     if current_user
+      @current_page = 'home-user'
       user_id = current_user.id
       @albums = Album.where(user_id: user_id)
     end

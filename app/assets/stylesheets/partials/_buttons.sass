@@ -1,7 +1,13 @@
-=sign-in-button($color: #FFF)
+=connect-button($color: #FFF)
   +button(simple, $color)
+  background-image: none
+  border-radius: 0px
+  border: none
   font:
     family: 'Kankin', sans-serif
     size: 25px
-  text-transform: uppercase
-
+  text:
+    align: left
+    transform: uppercase
+  &:active
+    background: none
