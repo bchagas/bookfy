@@ -1,0 +1,21 @@
+fieldset
+  &.inputs
+    width: 100%
+    label
+      clear: both
+      display: block
+      margin-bottom: 10px
+      width: 100%
+    input
+      border: 1px solid $text
+      margin: 0
+      padding: 10px
+      width: 100%
+  &.actions
+    border-top: 1px solid $text
+    margin-top: 10px
+    overflow: hidden
+    width: 100%
+    input[type='submit']
+      +connect-button($green)
+      float: right
