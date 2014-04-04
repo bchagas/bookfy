@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bourbon'
+gem 'classic_presenter'
 gem 'font-awesome-rails'
 gem 'formtastic'
 gem 'friendly_id'

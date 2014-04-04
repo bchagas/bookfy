@@ -1,0 +1,11 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'first-access' %>
+<% end %>
+
+<div class='sad'>
+  <p>
+    <%= fa_icon "frown-o" %>
+    You don't have any <%= humanize_object(object) %>
+  </p>
+  <%= link_to "Create your first album now!", new_album_path, class: 'button big' %>
+</div>

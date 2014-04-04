@@ -33,6 +33,7 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    classic_presenter (1.1.0)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -167,6 +168,7 @@ PLATFORMS
 
 DEPENDENCIES
   bourbon
+  classic_presenter
   coffee-rails (~> 3.2.1)
   debugger
   font-awesome-rails
