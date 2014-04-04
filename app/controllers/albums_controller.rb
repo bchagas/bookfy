@@ -34,7 +34,8 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-        format.html { redirect_to albums_path, :notice => 'Album created' }
+        @last_album = current_user.albums.last
+        format.html { redirect_to new_album_photo_path(@album), :notice => 'Album created' }
       else
         format.html { render action: :new, :error => @album.errors.full_messages.to_sentence }
       end
