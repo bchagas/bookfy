@@ -43,8 +43,6 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    binding.pry
-
     @album = Album.friendly_id.find(params[:id])
     @album.update_attributes(params[:account])
     respond_with @account
