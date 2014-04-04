@@ -26,8 +26,12 @@
           </div>
         </div>
       </header>
+
+      <div class='container'>
+        <%= yield %>
+      </div>
     <% else %>
-      <div class='home'>
+      <div class='content'>
         <hgroup class='logo'>
           <h1>Instabooks</h1>
           <h2>
@@ -40,6 +44,5 @@
         <%= link_to "Connect your Instagram account", "/auth/instagram", class: 'button connect' %>
       </div>
     <% end %>
-    <%= yield %>
   </body>
 </html>
