@@ -1,11 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :body_class
 
   def index
-    @current_page = 'home'
-
     if current_user
-      @current_page = 'user'
       user_id = current_user.id
       @albums = Album.where(user_id: user_id)
     end
@@ -37,6 +35,14 @@ class ApplicationController < ActionController::Base
       @page_max_id = @user_photos.pagination.next_max_id
     else
       redirect_to root_path
+    end
+  end
+
+  def body_class
+    if current_user
+      @body_class = 'user'
+    else
+      @body_class = 'home'
     end
   end
 end
