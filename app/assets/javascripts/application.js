@@ -13,3 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.modal
+
+
+$().ready(function(){
+  $('.dropdown button').each(function(k, v){
+    $(v).click(function(event){
+      var items = $(event.target).next('ul');
+      items.toggle();
+    });
+  });
+
+  $('body').click(function(event){
+    var dropdown_open = $(event.target).parents().hasClass('dropdown');
+    if(!dropdown_open) {
+      $('body .dropdown ul:visible').hide();
+    }
+  });
+});
