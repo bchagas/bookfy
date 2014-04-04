@@ -7,7 +7,7 @@ module ApplicationHelper
   def humanize_object(object)
     case object.class.name
     when 'AlbumPresenter'
-      'Albums'
+      'albums'
     end
   end
 end
