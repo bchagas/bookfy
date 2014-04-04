@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     @current_page = 'home'
 
     if current_user
-      @current_page = 'home-user'
+      @current_page = 'user'
       user_id = current_user.id
       @albums = Album.where(user_id: user_id)
     end

@@ -4,22 +4,18 @@
 @import partials/reset
 @import partials/colors
 @import partials/buttons
+@import partials/typography
+@import partials/grid
 @import partials/logo
 
 html, body
   +size(100% 100%)
 
-body.home
-  background: url('background.jpg') $background no-repeat center center fixed
-  background-size: cover
-
-.logo
-  color: white
-  height: 72px
-  margin-bottom: 30px
-  margin-top: 25px
-  h2
-    line-height: 20px
+body
+  background: $background
+  &.home
+    background: url('background.jpg') $background no-repeat center center fixed
+    background-size: cover
 
 .home
   overflow: hidden
@@ -37,3 +33,7 @@ body.home
     right: 20px
   line-height: 32px
   width: 280px
+
+.user-info
+  .button
+    +transparent-button

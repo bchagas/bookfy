@@ -9,5 +9,39 @@
   text:
     align: left
     transform: uppercase
-  &:active
-    background: none
+
+=transparent-button
+  +button(simple, $background)
+  background-image: none
+  border-size: 1px
+  border-color: $text
+  font:
+    family: 'Kankin', sans-serif
+    size: 20px
+  padding: 5px
+  text:
+    align: left
+    transform: uppercase
+
+.dropdown
+  position: relative
+  button
+    position: absolute
+    right: 0
+  ul
+    background: white
+    border: 1px solid $text
+    border-radius: 3px
+    box-shadow: 0 6px 12px rgba(0,0,0,.175)
+    min-width: 180px
+    position: absolute
+    right: 1px
+    top: 40px
+  a
+    display: block
+    text-align: left
+    padding: 10px 60px 10px 10px
+    &:hover
+      background: $background
+  .last
+    border-top: 1px solid $text
