@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
 
   def body_class
     if current_user
-      @body_class = 'user'
+      @body_class = "user #{action_name}"
     else
       @body_class = 'home'
     end
