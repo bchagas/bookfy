@@ -23,6 +23,19 @@
     align: left
     transform: uppercase
 
+=share-button($color: #FFF)
+  +button(simple, $color)
+  font:
+    family: 'Kankin', sans-serif
+    size: 14px
+  background-image: none
+  border-radius: 0px
+  padding: 5px 5px 3px
+  text-transform: uppercase
+  text-shadow: 0
+  &:hover
+    color: white
+
 .dropdown
   position: relative
   button

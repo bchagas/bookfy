@@ -1,0 +1,25 @@
+.albums
+  li
+    background: white
+    +span-columns(3)
+    text-align: center
+  img
+    width: 88%
+  h3, .album-info
+    text-align: left
+    padding: 12px
+  h3
+    display: block
+    font:
+      family: 'Kankin', sans-serif
+      size: 18px
+    text-transform: uppercase
+    width: 88%
+  .album-info
+    overflow: hidden
+  .share
+    +share-button($share)
+    float: right
+  .photo-counter
+    float: left
+    margin-top: 5px
