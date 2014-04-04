@@ -1,7 +1,9 @@
+@import partials/colors
+
 .modal
   display: none
   width: 400px
-  background: #fff
+  background: white
   box-shadow: 0 0 10px #000
 
 
@@ -26,3 +28,27 @@
   margin-right: -32px
   margin-top: -32px
   background: url(spinner.gif) #111 no-repeat center center
+
+form
+  legend
+    width: 100%
+    span
+      background: $text
+      border-bottom: 1px solid $text
+      color: white
+      display: block
+      font:
+        family: 'Kankin', sans-serif
+        size: 20px
+      text-transform: uppercase
+      padding: 14px 10px
+      width: 100%
+  input
+    font:
+      family: 'Fabrica', sans-serif
+      size: 14px
+    &:focus
+      outline: none
+  ol
+    padding: 15px 10px 10px
+    overflow: hidden
