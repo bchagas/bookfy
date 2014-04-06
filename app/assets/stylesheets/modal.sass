@@ -1,22 +1,74 @@
+@import bourbon
+@import neat
 @import partials/colors
 
 .modal
   display: none
-  width: 400px
+  min-width: 400px
+  max-height: 500px
   background: white
   box-shadow: 0 0 10px #000
+  padding-top: 49px
+  padding-bottom: 66px
+  position: relative
 
-
-.modal a.close-modal
-  position: absolute
-  top: -12.5px
-  right: -12.5px
-  display: block
-  width: 30px
-  height: 30px
-  text-indent: -9999px
-  background: url(close.png) no-repeat 0 0
-
+  a.close-modal
+    position: absolute
+    top: -12.5px
+    right: -12.5px
+    display: block
+    width: 30px
+    height: 30px
+    text-indent: -9999px
+    background: url(close.png) no-repeat 0 0
+  form
+    overflow: auto
+    max-height: 390px
+    max-width: 870px
+    legend
+      width: 100%
+      position: absolute
+      top: 0
+      left: 0
+      span
+        background: $text
+        border-bottom: 1px solid $text
+        color: white
+        display: block
+        font:
+          family: 'Kankin', sans-serif
+          size: 20px
+        text-transform: uppercase
+        padding: 14px 10px
+        width: 100%
+    input
+      font:
+        family: 'Fabrica', sans-serif
+        size: 14px
+      &:focus
+        outline: none
+    ol
+      padding: 15px 10px 10px
+      overflow: hidden
+      &.photos
+        padding: 0
+        li
+          position: relative
+          float: left
+          margin: 10px
+          +size(150px 170px)
+        input[type='checkbox']
+          position: absolute
+          top: 0
+          right: 0
+          z-index: -1
+        p
+          display: block
+          clear: both
+    .actions
+      background: white
+      position: absolute
+      bottom: 0
 
 .modal-spinner
   display: none
@@ -28,27 +80,3 @@
   margin-right: -32px
   margin-top: -32px
   background: url(spinner.gif) #111 no-repeat center center
-
-form
-  legend
-    width: 100%
-    span
-      background: $text
-      border-bottom: 1px solid $text
-      color: white
-      display: block
-      font:
-        family: 'Kankin', sans-serif
-        size: 20px
-      text-transform: uppercase
-      padding: 14px 10px
-      width: 100%
-  input
-    font:
-      family: 'Fabrica', sans-serif
-      size: 14px
-    &:focus
-      outline: none
-  ol
-    padding: 15px 10px 10px
-    overflow: hidden

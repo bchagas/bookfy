@@ -3,5 +3,6 @@
   <%= f.input :name, label: false, placeholder: 'Album name*' %>
 <% end %>
 <%= f.actions do %>
+  <%= link_to 'Cancel', '#', class: 'button', :rel => "modal:close" %>
   <%= f.submit 'Save' %>
 <% end %>

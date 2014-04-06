@@ -1,9 +1,10 @@
-<%= link_to 'Back', album_path(params[:album_id]) %>
-<hr>
 <%= semantic_form_for @album, :url => album_photos_path do |f| %>
-  <%= render 'photo', f: f %>
+  <%= f.inputs  "Add photos" do %>
+    <%= render 'photo', f: f %>
+  <% end %>
+
   <%= f.actions do %>
+    <%= link_to 'Cancel', album_path(params[:album_id]), class: 'button', :rel => "modal:close" %>
     <%= f.submit 'Add photos' %>
   <% end %>
 <% end %>
-<hr>
