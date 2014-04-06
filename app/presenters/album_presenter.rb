@@ -1,6 +1,6 @@
 class AlbumPresenter < ClassicPresenter::Base
   def display_albums
-    if self.empty? and current_user
+    if self.empty? and context.current_user
       context.render "partials/empty_object", object: self
     else
       context.render "partials/albums", albums: self
@@ -12,6 +12,12 @@ class AlbumPresenter < ClassicPresenter::Base
       context.image_tag 'default-cover.jpg', alt: 'Album empty'
     else
       context.image_tag context.load_photo(self.photos.first.photo_id)
+    end
+  end
+
+  def display_actions
+    if context.current_user
+      context.render "partials/actions"
     end
   end
 end
