@@ -1,8 +1,12 @@
 <ul class='albums'>
   <% albums.each do |album| %>
     <li>
+      <% present AlbumPresenter, album do |presenter| %>
+        <%= presenter.display_actions %>
+      <% end %>
+
       <%= link_to album_path(album) do %>
-        <h3><%= album.name %></h3>
+        <h3><%= truncate(album.name, length: 15, omission: '...') %></h3>
         <% present AlbumPresenter, album do |presenter| %>
           <%= presenter.display_cover %>
         <% end %>
