@@ -1,7 +1,7 @@
-<%= f.inputs 'New album' do %>
+<%= f.inputs "#{action_name} album" do %>
   <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
   <%= f.input :name, label: false, placeholder: 'Album name*' %>
 <% end %>
 <%= f.actions do %>
-  <%= f.submit 'Create album' %>
+  <%= f.submit 'Save' %>
 <% end %>
