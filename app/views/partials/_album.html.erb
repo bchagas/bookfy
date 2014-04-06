@@ -1,0 +1,12 @@
+<li>
+  <%= link_to album_path(album) do %>
+    <h3><%= album.name %></h3>
+    <%= image_tag load_photo(album.photos.first.photo_id), class: 'img-rounded', data: { src: album.photos.first }  %>
+  <% end %>
+  <div class='album-info'>
+    <p class='photo-counter'>
+    <%= "#{fa_icon "camera-retro"} #{album.photos.size}".html_safe %>
+    </p>
+    <%= link_to 'share', '', class: 'button share' %>
+  </div>
+</li>

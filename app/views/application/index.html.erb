@@ -1,5 +1,3 @@
-<% if current_user %>
-  <% present AlbumPresenter, @albums do |presenter| %>
-    <%= presenter.display_albums %>
-  <% end %>
+<% present AlbumPresenter, @albums do |presenter| %>
+  <%= presenter.display_albums %>
 <% end %>

@@ -3,7 +3,9 @@
     <li>
       <%= link_to album_path(album) do %>
         <h3><%= album.name %></h3>
-        <%= image_tag load_photo(album.photos.first.photo_id), class: 'img-rounded', data: { src: album.photos.first }  %>
+        <% present AlbumPresenter, album do |presenter| %>
+          <%= presenter.display_cover %>
+        <% end %>
       <% end %>
       <div class='album-info'>
         <p class='photo-counter'>
