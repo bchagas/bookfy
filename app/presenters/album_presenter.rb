@@ -1,9 +1,9 @@
 class AlbumPresenter < ClassicPresenter::Base
   def display_albums
-    if self.empty? and context.current_user
-      context.render "partials/empty_object", object: self
-    else
+    if self.present? and context.current_user
       context.render "partials/albums", albums: self
+    else
+      context.render "partials/empty_object", object: self
     end
   end
 

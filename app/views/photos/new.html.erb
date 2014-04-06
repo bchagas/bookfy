@@ -1,7 +1,7 @@
 <%= link_to 'Back', album_path(params[:album_id]) %>
 <hr>
 <%= semantic_form_for @album, :url => album_photos_path do |f| %>
-  <%= render partial: 'photo', :locals => { f: f } %>
+  <%= render 'photo', f: f %>
   <%= f.actions do %>
     <%= f.submit 'Add photos' %>
   <% end %>
