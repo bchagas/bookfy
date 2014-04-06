@@ -42,12 +42,6 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def update
-    @album = Album.friendly_id.find(params[:id])
-    @album.update_attributes(params[:account])
-    respond_with @account
-  end
-
   def destroy
     @album = Album.find(params[:id])
     @album.destroy
@@ -58,10 +52,11 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    @album = Album.find(params[:id])
+    @album = Album.friendly_id.find(params[:id])
+    @album.update_attributes(name: params[:album][:name])
     respond_to do |format|
       if @album.save
-        format.html { redirect_to album_path(@album), :notice => 'Photos added to album' }
+        format.html { redirect_to root_path, :notice => 'Photos added to album' }
       else
         format.html { render action: :new, :error => @album.errors.full_messages.to_sentence }
       end

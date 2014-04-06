@@ -1,7 +1,7 @@
 <div class='actions dropdown'>
   <button class='button clear'><%= fa_icon 'gear' %></button>
   <ul>
-    <li><%= link_to_modal "Create album", new_album_path %></li>
-    <li class='last'><%= link_to "Sign out", signout_path %></li>
+    <%= link_to_modal 'Edit Album', edit_album_path(album) %>
+    <%= link_to 'Remove Album', album_path(album), class: 'delete last', confirm: 'Are you sure?', method: :delete %>
   </ul>
 </div>

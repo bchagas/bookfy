@@ -17,7 +17,7 @@ class AlbumPresenter < ClassicPresenter::Base
 
   def display_actions
     if context.current_user
-      context.render "partials/actions"
+      context.render "partials/actions", album: self
     end
   end
 end
