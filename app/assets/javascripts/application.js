@@ -18,7 +18,7 @@
 $().ready(function(){
   $('.dropdown button').each(function(k, v){
     $(v).click(function(event){
-      var items = $(event.target).next('ul');
+      var items = $(event.target).parents('.dropdown').find('ul');
       items.toggle();
     });
   });
