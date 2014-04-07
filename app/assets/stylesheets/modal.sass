@@ -1,6 +1,7 @@
 @import bourbon
 @import neat
 @import partials/colors
+@import partials/buttons
 
 .modal
   display: none
@@ -53,22 +54,37 @@
       &.photos
         padding: 0
         li
+          cursor: pointer
           position: relative
           float: left
           margin: 10px
-          +size(150px 170px)
+          +size(150px 150px)
         input[type='checkbox']
           position: absolute
-          top: 0
+          top: 5px
           right: 0
           z-index: -1
+          &:checked + img + .caption
+            display: block
+        .caption
+          cursor: pointer
+          &:hover
+            padding: 5px
+            box-shadow: inset 0 0 2px $text
         p
-          display: block
           clear: both
+          display: block
+          line-height: 20px
     .actions
       background: white
       position: absolute
       bottom: 0
+
+  .load
+    +transparent-button
+    display: block
+    margin: 20px auto
+    text-align: center
 
 .modal-spinner
   display: none

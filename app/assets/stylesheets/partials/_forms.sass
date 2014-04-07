@@ -6,6 +6,20 @@ fieldset
       display: block
       margin-bottom: 10px
       width: 100%
+      position: relative
+      &:hover
+        .caption
+          display: block
+      .caption
+        background: white
+        display: none
+        opacity: .8
+        position: absolute
+        top: 0
+        right: 0
+        padding: 5px
+        +transition (all .2s ease-in-out)
+        +size(100% 98%)
     input
       border: 1px solid $text
       margin: 0

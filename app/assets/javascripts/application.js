@@ -29,4 +29,13 @@ $().ready(function(){
       $('body .dropdown ul:visible').hide();
     }
   });
+
+  $("input[type=checkbox]").each(function(){
+    cheked();
+    console.log('google');
+  });
 });
+
+var checked = function() {
+  $('input:checked').siblings('.caption').show();
+};
