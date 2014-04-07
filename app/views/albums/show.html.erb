@@ -1,3 +1,11 @@
+<% content_for :facebook_meta_tags do %>
+  <meta property="og:image" content="<%= @photos.first.images.low_resolution.url %>"/>
+  <meta property="og:title" content="Look my new album <%= @album.name %>"/>
+  <meta property="og:url" content="<%= album_url(@album) %>"/>
+  <meta property="og:site_name" content="Instabooks"/>
+  <meta property="og:type" content="app"/>
+<% end %>
+
 <h1 class='title'><%= @album.name %></h1>
 
 <% if current_user %>
@@ -28,7 +36,7 @@
       <%= image_tag(photo.images.low_resolution.url) %>
 
       <% unless photo.caption.nil? %>
-        <h3><%= photo.caption.text %></h3>
+        <h3><%= truncate(photo.caption.text, lenght: 100, omission: '...') %></h3>
       <% end %>
     <% end %>
 

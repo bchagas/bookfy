@@ -10,4 +10,8 @@ module ApplicationHelper
       'albums'
     end
   end
+
+  def album_url(album)
+    "#{root_url}albums/#{album.slug}"
+  end
 end
