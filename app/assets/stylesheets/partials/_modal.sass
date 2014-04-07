@@ -7,6 +7,9 @@
   padding-bottom: 66px
   position: relative
 
+  .title
+    display: none
+
   a.close-modal
     position: absolute
     top: -12.5px
@@ -16,82 +19,13 @@
     height: 30px
     text-indent: -9999px
     background: url(close.png) no-repeat 0 0
+
   form
-    overflow: auto
-    max-height: 390px
-    max-width: 870px
-    legend
-      width: 100%
-      position: absolute
-      top: 0
-      left: 0
-      span
-        background: $text
-        border-bottom: 1px solid $text
-        color: white
-        display: block
-        font:
-          family: 'Kankin', sans-serif
-          size: 20px
-        text-transform: uppercase
-        padding: 14px 10px
-        width: 100%
-    input
-      font:
-        family: 'Fabrica', sans-serif
-        size: 14px
-      &:focus
-        outline: none
-    ol
-      padding: 15px 10px 10px
-      overflow: hidden
-      &.photos
-        padding: 0
-        img
-          width: 88%
-        li
-          cursor: pointer
-          position: relative
-          float: left
-          margin: 0
-          +size(121px 175px)
-        input[type='checkbox']
-          position: absolute
-          top: 5px
-          right: 0
-          z-index: -1
-          &:checked + img + p
-            &:after
-              content: '\f00c'
-              background: white
-              display: block
-              line-height: 12px
-              font:
-                family: 'FontAwesome'
-                size: 10px
-              padding: 3px
-              position: absolute
-              top: 84px
-              right: 20px
-              +size(10px 10px)
-        img
-          cursor: pointer
-          position: relative
-        p
-          clear: both
-          display: block
-          font-size: 10px
-          line-height: 20px
+    +photos-form
     .actions
       background: white
       position: absolute
       bottom: 0
-
-  .load
-    +default-button
-    display: block
-    margin: 20px auto
-    text-align: center
 
 .modal-spinner
   display: none

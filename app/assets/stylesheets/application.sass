@@ -50,11 +50,23 @@ body
     line-height: 10px
     .fb-share-button
       width: 55px !important
-.user.show
-  .share
+
+.user .container
+  > .share
     position: absolute
     top: 33px
     right: 25px
+
+.user
+  form.add-photos
+    +photos-form
+    +size(100% 100%)
+    margin: 0 auto
+    overflow: hidden
+    max-height: none
+    fieldset
+      legend
+        display: none
 
 .show_photo
   img
