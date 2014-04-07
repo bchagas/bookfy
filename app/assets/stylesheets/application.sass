@@ -44,14 +44,18 @@ body
   position: relative
   .album.actions.dropdown
     position: absolute
-    top: 36px
+    top: 33px
     right: 0
   .share
-    @extend .album.actions.dropdown
-    right: 30px
-    .fb-share-button, #twitter-widget-0, #___plusone_0
-      width: 120px
-      line-height: 14px
+    line-height: 10px
+    .fb-share-button
+      width: 55px !important
+.user.show
+  .share
+    position: absolute
+    top: 33px
+    right: 25px
+
 .show_photo
   img
     display: block

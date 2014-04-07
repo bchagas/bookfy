@@ -1,9 +1,8 @@
 <div class='share'>
-  <div class="fb-share-button" data-href="<%= url %>" data-type="button_count"></div>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= url %>" data-via="instabooksme" data-lang="en">Tweet</a>
+  <div class="fb-share-button" data-href="<%= url %>" data-type="button"></div>
+  <a href="<%= url %>" class="twitter-share-button" data-via="instabooksme" data-count="none">Tweet</a>
   <div class="g-plusone" data-size="medium" data-annotation="none" data-width="120"></div>
 </div>
-
 
 <% content_for :javascripts do %>
   <div id="fb-root"></div>
@@ -15,7 +14,7 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
   <script type="text/javascript">
     (function() {
