@@ -13,7 +13,7 @@ gem 'jquery-ui-rails'
 gem 'jquery-modal-rails'
 gem 'pg'
 gem 'rails', '3.2.13'
-gem 'rails_12factor'
+gem 'rails_on_heroku'
 gem 'thin'
 
 group :assets do
