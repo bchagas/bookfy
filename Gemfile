@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '1.9.3'
 
 gem 'classic_presenter'
 gem 'font-awesome-rails'
@@ -13,7 +13,6 @@ gem 'jquery-ui-rails'
 gem 'jquery-modal-rails'
 gem 'pg'
 gem 'rails', '3.2.13'
-gem 'rails_on_heroku'
 gem 'thin'
 
 group :assets do
@@ -25,6 +24,5 @@ group :assets do
 end
 
 group :development do
-  gem 'debugger'
   gem 'pry'
 end

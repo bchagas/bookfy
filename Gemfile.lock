@@ -42,15 +42,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
-    columnize (0.3.6)
     daemons (1.1.9)
-    debugger (1.4.0)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.1.1)
-      debugger-ruby_core_source (~> 1.2.0)
-    debugger-linecache (1.1.2)
-      debugger-ruby_core_source (>= 1.1.1)
-    debugger-ruby_core_source (1.2.0)
     erubis (2.7.0)
     eventmachine (1.0.0)
     execjs (1.4.0)
@@ -135,11 +127,6 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
-    rails_on_heroku (0.0.2)
-      rails_serve_static_assets
-      rails_stdout_logging
-    rails_serve_static_assets (0.0.2)
-    rails_stdout_logging (0.0.3)
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -183,7 +170,6 @@ DEPENDENCIES
   bourbon
   classic_presenter
   coffee-rails (~> 3.2.1)
-  debugger
   font-awesome-rails
   formtastic
   friendly_id
@@ -196,7 +182,6 @@ DEPENDENCIES
   pg
   pry
   rails (= 3.2.13)
-  rails_on_heroku
   sass-rails (~> 3.2.3)
   thin
   uglifier (>= 1.0.3)
