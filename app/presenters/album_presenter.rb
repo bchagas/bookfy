@@ -11,7 +11,7 @@ class AlbumPresenter < ClassicPresenter::Base
     if self.photos.empty?
       context.image_tag 'default-cover.jpg', alt: 'Album empty'
     else
-      context.image_tag context.load_photo(self.photos.first.photo_id)
+      context.image_tag context.load_photo(self.photos.first.photo_id).images.low_resolution.url
     end
   end
 

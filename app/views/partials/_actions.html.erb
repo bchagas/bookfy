@@ -1,8 +1,8 @@
 <div class='actions dropdown'>
   <button class='button clear'><%= fa_icon 'gear' %></button>
   <ul>
-    <%= link_to_modal 'Add photos', new_album_photo_path(album), rel: 'ajax:modal' %>
-    <%= link_to_modal 'Edit album title', edit_album_path(album), rel: 'ajax:modal' %>
-    <%= link_to 'Remove Album', album_path(album), class: 'delete last', confirm: 'Are you sure?', method: :delete %>
+    <li><%= link_to_modal 'Add photos', new_album_photo_path(album), rel: 'ajax:modal' %></li>
+    <li><%= link_to_modal 'Edit album title', edit_album_path(album), rel: 'ajax:modal' %></li>
+    <li><%= link_to 'Remove Album', album_path(album), class: 'delete last', confirm: 'Are you sure?', method: :delete %></li>
   </ul>
 </div>

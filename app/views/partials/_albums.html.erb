@@ -1,6 +1,7 @@
 <ul class='albums'>
-  <% albums.each do |album| %>
-    <li>
+  <% albums.each_with_index do |album, index| %>
+    <% index = index + 1 %>
+    <li class="<%= 'last' if index % 4 == 0 %>">
       <% present AlbumPresenter, album do |presenter| %>
         <%= presenter.display_actions %>
       <% end %>
