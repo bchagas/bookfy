@@ -3,7 +3,11 @@
     <label for="<%= p.id %>">
       <input id="<%= p.id %>" name="album[photos][photo_id][]" type="checkbox" value="<%= p.id %>">
       <img src="<%= p.images.thumbnail.url %>">
-      <%= content_tag(:p, p.caption.text) unless p.caption.nil? %>
+      <% unless p.caption.nil? %>
+        <div class='caption'>
+          <%= content_tag(:p, p.caption.text) %>
+        </div>
+      <% end %>
     </label>
   </li>
 <% end %>

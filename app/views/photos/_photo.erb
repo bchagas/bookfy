@@ -7,8 +7,3 @@
 <% end %>
 
 <%= link_to 'Load more photos', load_photos_path(max_id: @page_max_id), class: 'button load', remote: true, id: 'load-more' %>
-
-<% content_for :javascripts do %>
-  <script type='text/javascript'>
-  </script>
-<% end %>
