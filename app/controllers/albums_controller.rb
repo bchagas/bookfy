@@ -57,7 +57,7 @@ class AlbumsController < ApplicationController
     @album.update_attributes(name: params[:album][:name])
     respond_to do |format|
       if @album.save
-        format.html { redirect_to root_path, :notice => 'Photos added to album' }
+        format.html { redirect_to album_path(@album), :notice => 'Photos added to album' }
       else
         format.html { render action: :new, :error => @album.errors.full_messages.to_sentence }
       end

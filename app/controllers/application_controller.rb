@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :body_class
-  before_filter :require_login, except: [:home]
 
   def index
     if current_user
@@ -34,7 +33,7 @@ class ApplicationController < ActionController::Base
   def require_login
     unless current_user
       flash[:notice] = "You are not logged in"
-      redirect_to home_path
+      redirect_to albums_path
     end
   end
 
@@ -43,7 +42,7 @@ class ApplicationController < ActionController::Base
       @user_photos = current_user.instagram.user_recent_media(options)
       @page_max_id = @user_photos.pagination.next_max_id
     else
-      redirect_to root_path
+      redirect_to home_path
     end
   end
 
