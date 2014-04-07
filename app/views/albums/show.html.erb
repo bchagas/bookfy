@@ -1,9 +1,11 @@
-<% content_for :facebook_meta_tags do %>
-  <meta property="og:image" content="<%= @photos.first.images.low_resolution.url %>"/>
-  <meta property="og:title" content="Look my new album <%= @album.name %>"/>
-  <meta property="og:url" content="<%= album_url(@album) %>"/>
-  <meta property="og:site_name" content="Instabooks"/>
-  <meta property="og:type" content="app"/>
+<% unless @photos.empty? %>
+  <% content_for :facebook_meta_tags do %>
+    <meta property="og:image" content="<%= @photos.first.images.low_resolution.url %>"/>
+    <meta property="og:title" content="Look my new album <%= @album.name %>"/>
+    <meta property="og:url" content="<%= album_url(@album) %>"/>
+    <meta property="og:site_name" content="Instabooks"/>
+    <meta property="og:type" content="app"/>
+  <% end %>
 <% end %>
 
 <h1 class='title'><%= @album.name %></h1>
@@ -21,30 +23,7 @@
   </div>
 <% end %>
 
-<ul id='photos'>
-  <% @photos.each_with_index do |photo, index| %>
-  <% index = index + 1 %>
-  <li class="<%= 'last' if index % 4 == 0 %>">
-    <% if current_user %>
-      <div class='actions dropdown'>
-        <button class='button clear'><%= fa_icon 'gear' %></button>
-        <ul>
-          <li><%= link_to 'Remove', album_photo_path(@album, photo.id), class: 'last delete', confirm: 'Are you sure?', method: :delete %></li>
-        </ul>
-      </div>
+<% present AlbumPresenter, @photos do |presenter| %>
+  <%= presenter.display_photos %>
+<% end %>
 
-    <% end %>
-    <%= link_to photo_path(@album, photo.id) do %>
-      <%= image_tag(photo.images.low_resolution.url) %>
-
-      <% unless photo.caption.nil? %>
-        <h3><%= truncate(photo.caption.text, lenght: 100, omission: '...') %></h3>
-      <% end %>
-    <% end %>
-
-    <% if photo.type == 'video' %>
-      <%= fa_icon 'play' %>
-    <% end %>
-  </li>
-  <% end %>
-</ul>

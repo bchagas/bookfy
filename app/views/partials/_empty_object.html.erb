@@ -5,7 +5,15 @@
 <div class='sad'>
   <p>
     <%= fa_icon "frown-o" %>
-    You don't have any <%= humanize_object(object) %>
+    <% if current_user %>
+      You don't have any <%= object %>
+    <% else %>
+      This album don't have any <%= object %>
+    <% end %>
   </p>
-  <%= link_to_modal "Create your first album now!", new_album_path, class: 'button big' %>
+  <% if object == 'albums' and current_user %>
+    <%= link_to_modal "Create your first album now!", new_album_path, class: 'button big' %>
+  <% elsif object == 'photos' and current_user %>
+    <%= link_to_modal "Add photos now!", new_album_photo_path(@album), class: 'button big' %>
+  <% end %>
 </div>
