@@ -57,15 +57,16 @@ body
     right: 25px
 
 .user
-  form.add-photos
-    +photos-form
-    +size(100% 100%)
-    margin: 0 auto
-    overflow: hidden
-    max-height: none
-    fieldset
-      legend
-        display: none
+  form
+    &.add-photos, &.add-album
+      +photos-form
+      +size(100% 100%)
+      margin: 0 auto
+      overflow: hidden
+      max-height: none
+      fieldset
+        legend
+          position: relative
 
 .show_photo
   img

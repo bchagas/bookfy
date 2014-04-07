@@ -1,4 +1,4 @@
-.modal
+.user .modal
   display: none
   min-width: 400px
   background: white
@@ -20,8 +20,10 @@
     text-indent: -9999px
     background: url(close.png) no-repeat 0 0
 
-  form
+  form.add-photos, form.add-album
     +photos-form
+    fieldset legend
+      display: block
     .actions
       background: white
       position: absolute
