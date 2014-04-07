@@ -2,10 +2,17 @@
   .actions .button
     top: 8px
     right: 10px
-  li
+  > li
     background: white
-    +span-columns(3)
+    +size(221px 285px)
+    float: left
+    margin:
+      right: 22px
+      bottom: 22px
     text-align: center
+    position: relative
+    &.last
+      margin-right: 0
   img
     width: 88%
   h3, .album-info
@@ -26,3 +33,13 @@
   .photo-counter
     float: left
     margin-top: 5px
+
+#photos
+  @extend .albums
+  > li
+    padding-top: 15px
+    .actions.dropdown
+      top: 0
+      right: 8px
+      button
+        background: white

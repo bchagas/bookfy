@@ -9,9 +9,8 @@
     align: left
     transform: uppercase
 
-=transparent-button
+=default-button($background: #FFF)
   +button(simple, $background)
-  background-image: none
   border-size: 1px
   border-color: $text
   font:
@@ -48,7 +47,8 @@
 .dropdown
   position: relative
   .button
-    +transparent-button
+    +default-button
+    background: none
     position: absolute
     right: 0
     &.clear
@@ -63,6 +63,7 @@
     position: absolute
     right: 1px
     top: 40px
+    z-index: 2
     > li
       width: 100%
   a
