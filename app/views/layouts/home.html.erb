@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instabooks</title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= yield :head %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield :facebook_meta_tags %>
+  </head>
+  <body class='home'>
+    <div class='content'>
+      <hgroup class='logo'>
+        <h1>Instabooks</h1>
+        <h2>
+          Create photo books from
+          <br>
+          your Instagram photos
+        </h2>
+      </hgroup>
+      <%= link_to "Connect your Instagram account", "/auth/instagram", class: 'button connect' %>
+    </div>
+  </body>
+</html>

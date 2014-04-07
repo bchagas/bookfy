@@ -1,11 +1,12 @@
 class AlbumsController < ApplicationController
   before_filter :user_photos, except: [:show]
-  before_filter :require_login, except: [:index, :show]
+  before_filter :require_login, except: [:show]
 
   def index
     user_id = current_user.id
     @albums = Album.where(user_id: user_id)
     @user = current_user
+    @body_class = 'user'
   end
 
   def edit

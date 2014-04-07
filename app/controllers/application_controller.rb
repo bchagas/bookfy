@@ -1,11 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :body_class
+  before_filter :require_login, except: [:home]
 
   def index
     if current_user
       user_id = current_user.id
       @albums = Album.where(user_id: user_id)
+    end
+  end
+
+  def home
+    if current_user
+      redirect_to albums_path
+    else
+      render layout: "home"
     end
   end
 
@@ -24,8 +33,8 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless current_user
-      flash[:notice] = "You are not logged id"
-      redirect_to root_path && return
+      flash[:notice] = "You are not logged in"
+      redirect_to home_path
     end
   end
 

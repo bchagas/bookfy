@@ -9,7 +9,8 @@ Instabooks::Application.routes.draw do
   end
 
   get 'photo/:album_id/photo/:id', to: 'photos#show_photo', as: 'photo'
-  root to: 'application#index'
-
   get 'load_photos', to: 'application#load_photos'
+  get 'home', to: 'application#home', as: 'home'
+
+  root to: 'application#home'
 end
