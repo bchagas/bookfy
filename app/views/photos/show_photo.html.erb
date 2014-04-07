@@ -1,0 +1,6 @@
+<figure>
+  <figcaption>
+    <%= load_photo(@photo.photo_id).caption.text %>
+  </figcaption>
+  <%= image_tag load_photo(@photo.photo_id).images.standard_resolution.url %>
+</figure>

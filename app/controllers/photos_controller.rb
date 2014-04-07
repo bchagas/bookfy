@@ -15,6 +15,11 @@ class PhotosController < AlbumsController
     end
   end
 
+  def show_photo
+    album = Album.find(params[:album_id])
+    @photo = album.photos.find_by_photo_id(params[:id])
+  end
+
   def destroy
     photo = Photo.find_by_photo_id(params[:id])
     @photo = Photo.find(photo.id)
