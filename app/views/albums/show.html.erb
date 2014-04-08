@@ -12,7 +12,7 @@
 
 <%= render 'partials/share', url: album_url(@album) %>
 
-<% if current_user %>
+<% if @album.user_id == current_user.id %>
   <div class='album actions dropdown'>
     <button class='button clear'><%= fa_icon 'gear' %></button>
     <ul>
