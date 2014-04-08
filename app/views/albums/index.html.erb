@@ -1,3 +1,11 @@
+<% content_for :facebook_meta_tags do %>
+  <meta property="og:image" content="<%= 'assets/logo.jpg' %>"/>
+  <meta property="og:title" content="Instabooks - Create photo books from your Instagram photos"/>
+  <meta property="og:url" content="http://www.instabooks.me"/>
+  <meta property="og:site_name" content="Instabooks"/>
+  <meta property="og:type" content="website"/>
+<% end %>
+
 <h1 class='title'>Albums</h1>
 
 <% present AlbumPresenter, @albums do |presenter| %>
