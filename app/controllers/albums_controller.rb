@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
-  before_filter :user_photos, except: [:show]
+  before_filter :user_photos, only: [:new]
   before_filter :require_login, except: [:show]
+  include ApplicationHelper
 
   def index
     user_id = current_user.id
@@ -17,9 +18,8 @@ class AlbumsController < ApplicationController
     @album = Album.friendly_id.find(params[:id])
     photos = Photo.where(album_id: @album.id)
     current_user ||= User.find(@album.user_id)
-    @photos = []
-    photos.map do |photo|
-      @photos << current_user.instagram.media_item(photo.photo_id)
+    @photos = photos.map do |photo|
+      load_photo(photo.photo_id)
     end
   end
 
