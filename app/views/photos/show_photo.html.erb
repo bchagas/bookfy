@@ -1,8 +1,17 @@
+<% content_for :facebook_meta_tags do %>
+  <meta property="og:image" content="<%= load_photo(@photo.photo_id).images.standard_resolution.url %>"/>
+  <meta property="og:title" content="<%= @album.name %>"/>
+  <meta property="og:url" content="<%= album_url(@album) %>"/>
+  <meta property="og:site_name" content="Instabooks"/>
+  <meta property="og:type" content="website"/>
+<% end %>
+
 <figure class='show-photo'>
-  <% if load_photo(@photo.photo_id).caption %>
-    <figcaption>
+  <figcaption>
+    <%= link_to @album.name, album_path(@album) %> &raquo;
+    <% if load_photo(@photo.photo_id).caption %>
       <%= load_photo(@photo.photo_id).caption.text %>
-    </figcaption>
     <% end %>
+  </figcaption>
   <%= image_tag load_photo(@photo.photo_id).images.standard_resolution.url %>
 </figure>
