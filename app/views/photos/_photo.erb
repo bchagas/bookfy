@@ -1,7 +1,7 @@
 <%= f.fields_for "photos" do |photo| %>
   <ol class='photos'>
   <% @user_photos.each do |p| %>
-  <%= photo.input :photo_id, as: :boolean, input_html: { id: p.id, value: p.id, name: 'album[photos][photo_id][]' }, label: "#{image_tag(p.images.thumbnail.url)} <p>#{truncate(p.caption.text, length: 63, omission: '...')}</p>".html_safe %>
+  <%= photo.input :photo_id, as: :boolean, input_html: { id: p.id, value: p.id, name: 'album[photos][photo_id][]' }, label: "#{image_tag(p.images.thumbnail.url)}<p>#{truncate(p.caption.text ? p.caption.text : '', length: 63, omission: '...')}</p>".html_safe %>
   <% end %>
 </ol>
 <% end %>
