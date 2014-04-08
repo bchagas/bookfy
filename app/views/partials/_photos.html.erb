@@ -2,7 +2,7 @@
   <% photos.each_with_index do |photo, index| %>
   <% index = index + 1 %>
   <li class="<%= 'last' if index % 4 == 0 %>">
-    <%= @album.user_id == current_user.id %>
+    <% if @album.user_id == current_user.id %>
       <div class='actions dropdown'>
         <button class='button clear'><%= fa_icon 'gear' %></button>
         <ul>
