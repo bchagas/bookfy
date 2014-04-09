@@ -8,7 +8,7 @@ Instabooks::Application.routes.draw do
     resources :photos, :except => [:show]
   end
 
-  get 'photo/:album_id/photo/:id', to: 'photos#show_photo', as: 'photo'
+  get 'album/:album_id/photo/:id', to: 'photos#show_photo', as: 'photo'
   get 'load_photos', to: 'application#load_photos'
   get 'home', to: 'application#home', as: 'home'
 
