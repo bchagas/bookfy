@@ -14,7 +14,7 @@ class PhotosController < AlbumsController
       p.album_id  = album_id
       p.photo_id  = photo['id']
       p.data      = {
-                  text: photo['caption']['text'],
+                  text: photo['caption'].nil? ? '' : photo['caption']['text'],
                   image_low: photo['images']['low_resolution']['url'],
                   image_standard: photo['images']['standard_resolution']['url'],
                   image_thumbnail: photo['images']['thumbnail']['url']
