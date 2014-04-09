@@ -1,5 +1,6 @@
 class PhotosController < AlbumsController
   before_filter :find_album
+  before_filter :require_login, except: [:show_photo]
 
   def create
     @photo = Photo.new

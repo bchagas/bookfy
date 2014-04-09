@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   def require_login
     unless current_user
       flash[:notice] = "You are not logged in"
-      redirect_to albums_path
+      redirect_to home_path
     end
   end
 
