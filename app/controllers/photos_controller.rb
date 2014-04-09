@@ -3,10 +3,24 @@ class PhotosController < AlbumsController
 
   def create
     @photo = Photo.new
-    @photos = params[:album][:photos][:photo_id].reject!{ |p| p == "0" }
+    @photos = params[:album][:photos][:data].reject!{ |p| p == "0" }
     album = Album.find(params[:album_id])
     album_id = album.id
-    @photos.map { |photo| Photo.create(:photo_id => photo, :album_id => album_id).save }
+
+    @photos.each do |photo|
+      photo = JSON.parse(photo)
+      p = Photo.new
+      p.album_id  = album_id
+      p.photo_id  = photo['id']
+      p.data      = {
+                  text: photo['caption']['text'],
+                  image_low: photo['images']['low_resolution']['url'],
+                  image_standard: photo['images']['standard_resolution']['url'],
+                  image_thumbnail: photo['images']['thumbnail']['url']
+      }
+
+      p.save
+    end
 
     if @photo.save
       redirect_to album_path(@album), flash: { notice: 'Album created' }
@@ -17,16 +31,15 @@ class PhotosController < AlbumsController
 
   def show_photo
     album = Album.find(params[:album_id])
-    @photo = album.photos.find_by_photo_id(params[:id])
+    @photo = album.photos.find_by_id(params[:id])
   end
 
   def destroy
-    photo = Photo.find_by_photo_id(params[:id])
-    @photo = Photo.find(photo.id)
-    @photo.destroy
+    photo = Photo.find_by_id(params[:id])
+    photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to album_path(@album), :notice => 'Album created' }
+      format.html { redirect_to album_path(@album), :notice => 'Photo removed' }
     end
   end
 

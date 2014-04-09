@@ -1,6 +1,6 @@
 <% unless @photos.empty? %>
   <% content_for :facebook_meta_tags do %>
-    <meta property="og:image" content="<%= @photos.first.images.low_resolution.url %>"/>
+    <meta property="og:image" content="<%= @photos.first.data['image_low'] %>"/>
     <meta property="og:title" content="Look my new album <%= @album.name %>"/>
     <meta property="og:url" content="<%= album_url(@album) %>"/>
     <meta property="og:site_name" content="Instabooks"/>

@@ -1,5 +1,5 @@
 <% content_for :facebook_meta_tags do %>
-  <meta property="og:image" content="<%= load_photo(@photo.photo_id).images.standard_resolution.url %>"/>
+  <meta property="og:image" content="<%= @photo.data['image_low'] %>"/>
   <meta property="og:title" content="<%= @album.name %>"/>
   <meta property="og:url" content="<%= album_url(@album) %>"/>
   <meta property="og:site_name" content="Instabooks"/>
@@ -9,9 +9,9 @@
 <figure class='show-photo'>
   <figcaption>
     <%= link_to @album.name, album_path(@album) %> &raquo;
-    <% if load_photo(@photo.photo_id).caption %>
-      <%= load_photo(@photo.photo_id).caption.text %>
+    <% if @photo.data['text'] %>
+      <%= @photo.data['text'] %>
     <% end %>
   </figcaption>
-  <%= image_tag load_photo(@photo.photo_id).images.standard_resolution.url %>
+  <%= image_tag @photo.data['image_standard'] %>
 </figure>

@@ -16,11 +16,8 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.friendly_id.find(params[:id])
-    photos = Photo.where(album_id: @album.id)
+    @photos = Photo.where(album_id: @album.id)
     current_user ||= User.find(@album.user_id)
-    @photos = photos.map do |photo|
-      load_photo(photo.photo_id)
-    end
   end
 
   def new

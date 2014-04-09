@@ -12,15 +12,11 @@
 
     <% end %>
     <%= link_to photo_path(@album, photo.id) do %>
-      <%= image_tag(photo.images.low_resolution.url) %>
+      <%= image_tag(photo.data['image_low']) %>
 
-      <% unless photo.caption.nil? %>
-        <h3><%= truncate(photo.caption.text, lenght: 100, omission: '...') %></h3>
+      <% unless photo.data['text'].nil? %>
+        <h3><%= truncate(photo.data['text'], lenght: 100, omission: '...') %></h3>
       <% end %>
-    <% end %>
-
-    <% if photo.type == 'video' %>
-      <%= fa_icon 'play' %>
     <% end %>
   </li>
   <% end %>
