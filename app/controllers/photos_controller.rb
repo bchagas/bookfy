@@ -13,11 +13,14 @@ class PhotosController < AlbumsController
       p = Photo.new
       p.album_id  = album_id
       p.photo_id  = photo['id']
-      p.data      = {
-                  text: photo['caption'].nil? ? '' : photo['caption']['text'],
-                  image_low: photo['images']['low_resolution']['url'],
-                  image_standard: photo['images']['standard_resolution']['url'],
-                  image_thumbnail: photo['images']['thumbnail']['url']
+      p.data = {
+        type:               photo['type'],
+        text:               photo['caption'].nil? ? '' : photo['caption']['text'],
+        image_low:          photo['images']['low_resolution']['url'],
+        image_standard:     photo['images']['standard_resolution']['url'],
+        image_thumbnail:    photo['images']['thumbnail']['url'],
+        video_low:          photo['type'] == 'video' ? photo['videos']['low_resolution']['url'] : '',
+        video_standard:     photo['type'] == 'video' ? photo['videos']['standard_resolution']['url'] : ''
       }
 
       p.save

@@ -1,7 +1,7 @@
 <% @user_photos.each do |p| %>
   <li class="choice">
     <label for="<%= p.id %>">
-      <input id="<%= p.id %>" name="album[photos][data][]" type="checkbox" value="<%= "{\"id\":#{p.id.to_json},\"caption\":#{p.caption.to_json},\"images\":#{p.images.to_json}}" %>">
+      <input id="<%= p.id %>" name="album[photos][data][]" type="checkbox" value="<%= "{\"type\":#{p.type.to_json},\"id\":#{p.id.to_json},\"caption\":#{p.caption.to_json},\"images\":#{p.images.to_json},\"videos\":#{p.videos.to_json}}" %>">
       <img src="<%= p.images.thumbnail.url %>">
       <%= content_tag(:p, p.caption.text) unless p.caption.nil? %>
     </label>
