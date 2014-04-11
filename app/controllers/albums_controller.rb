@@ -16,7 +16,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.friendly_id.find(params[:id])
-    @photos = Photo.where(album_id: @album.id)
+    @photos = Photo.where(album_id: @album.id).order('position')
     current_user ||= User.find(@album.user_id)
   end
 
