@@ -38,6 +38,15 @@ class PhotosController < AlbumsController
     @photo = album.photos.find_by_id(params[:id])
   end
 
+  def sort
+    params[:photo].each_with_index do |id, index|
+      photos = Photo.find id
+      photos.update_attributes({position: index+1})
+    end
+
+    render nothing: true
+  end
+
   def destroy
     photo = Photo.find_by_id(params[:id])
     photo.destroy
