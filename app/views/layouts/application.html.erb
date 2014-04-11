@@ -26,6 +26,11 @@
               </ul>
             </div>
           </div>
+        <% else %>
+          <div class='unauthenticated'>
+            <p>Create your first album now!</p>
+            <%= link_to "Connect your Instagram account", "/auth/instagram", class: 'button connect-header' %>
+          </div>
         <% end %>
       </div>
     </header>
