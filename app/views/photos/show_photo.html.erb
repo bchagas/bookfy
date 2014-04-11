@@ -13,5 +13,9 @@
       <%= @photo.data['text'] %>
     <% end %>
   </figcaption>
-  <%= image_tag @photo.data['image_standard'] %>
+  <% if @photo.data['type'] == 'video' %>
+    <%= videojs_rails sources: { mp4: @photo.data['video_standard'] }, width:"640", poster: @photo.data['image_standard'] %>
+  <% else %>
+    <%= image_tag @photo.data['image_standard'] %>
+  <% end %>
 </figure>
