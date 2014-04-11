@@ -15,7 +15,7 @@
       <%= image_tag(photo.data['image_low']) %>
 
       <% unless photo.data['text'].nil? %>
-        <h3><%= truncate(photo.data['text'], lenght: 100, omission: '...') %></h3>
+        <h3><%= truncate(photo.data['text'], length: 70, omission: '...') %></h3>
       <% end %>
     <% end %>
   </li>
