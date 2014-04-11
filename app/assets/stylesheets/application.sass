@@ -17,9 +17,12 @@
 html, body
   +size(100% 100%)
 
+html body
+  &.user
+    background: $background
+    padding-bottom: 42px
+
 body
-  background: $background
-  padding-bottom: 42px
   &.home
     background: url('background.jpg') $background no-repeat center center fixed
     background-size: cover

@@ -1,0 +1,35 @@
+@import bourbon
+@import partials/colors
+
+.handle
+  display: block
+  color: white
+  top: 175px
+  left: 20px
+  font-size: 25px
+  text-shadow: 0 0 8px $text
+  position: absolute
+
+.ui-sortable-helper
+  border: 1px dashed $text
+
+.ui-state-highlight
+  background: white
+  border: 1px solid $text
+  +size(219px 283px)
+  float: left
+  margin:
+    right: 22px
+    bottom: 22px
+  text-align: center
+  position: relative
+  &:before
+    content: 'Drop here'
+    position: absolute
+    color: $background
+    font-size: 24px
+    +size(100px 100px)
+    top: 50%
+    left: 50%
+    margin-top: -50px
+    margin-left: -50px
