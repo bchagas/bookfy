@@ -5,7 +5,9 @@ Instabooks::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :albums do
-    resources :photos, :except => [:show]
+    resources :photos, :except => [:show] do
+      collection { post :sort }
+    end
   end
 
   get 'album/:album_id/photo/:id', to: 'photos#show_photo', as: 'photo'
