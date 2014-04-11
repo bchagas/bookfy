@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 
 gem 'activerecord-postgres-hstore'
+gem 'acts_as_list'
 gem 'classic_presenter'
 gem 'font-awesome-rails'
 gem 'formtastic'
