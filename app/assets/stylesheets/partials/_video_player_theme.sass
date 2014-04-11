@@ -1,0 +1,74 @@
+.vjs-default-skin:hover .vjs-big-play-button,
+.vjs-default-skin .vjs-big-play-button:focus,
+.vjs-default-skin .vjs-control,
+.vjs-default-skin .vjs-menu-button ul li:focus,
+.vjs-default-skin .vjs-menu-button ul li:hover,
+.vjs-default-skin .vjs-menu-button ul li.vjs-selected:focus,
+.vjs-default-skin .vjs-menu-button ul li.vjs-selected:hover
+  outline: none
+
+.video-js-box
+  position: relative
+  +size(640px)
+  .vjs-control-bar
+    position: absolute
+    top: 0
+    +fill-parent
+    height: 100%
+    .vjs-play-control
+      +size(100% 100%)
+      display: block
+      .vjs-control-content
+        display: none
+      &:hover, &.vjs-paused
+        .vjs-control-content
+          display: block
+          +size(100% 100%)
+          position: relative
+          .vjs-control-text
+            display: block
+            +hide-text
+          &:before
+            content: '\f04b'
+            font-family: 'FontAwesome', sans-serif
+            position: absolute
+            color: white
+            font-size: 90px
+            +size(80px 80px)
+            position: absolute
+            top: 50%
+            left: 50%
+            margin:
+              top: -40px
+              left: -40px
+            text-align: center
+      &.vjs-playing
+        .vjs-control-content
+          &:before
+            content: '\f04c'
+            font-family: 'FontAwesome', sans-serif
+            position: absolute
+            color: white
+            font-size: 90px
+            +size(80px 80px)
+            position: absolute
+            top: 50%
+            left: 50%
+            margin:
+              top: -40px
+              left: -40px
+            text-align: center
+  .vjs-mute-control,
+  .vjs-current-time,
+  .vjs-time-divider,
+  .vjs-duration,
+  .vjs-remaining-time,
+  .vjs-progress-control,
+  .vjs-fullscreen-control,
+  .vjs-volume-control,
+  .vjs-subtitles-button,
+  .vjs-captions-button,
+  .vjs-chapters-button
+    display: none
+    +size(0 0)
+    font-size: 0px

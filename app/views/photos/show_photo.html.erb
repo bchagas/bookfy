@@ -6,16 +6,26 @@
   <meta property="og:type" content="website"/>
 <% end %>
 
-<figure class='show-photo'>
-  <figcaption>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'show-photo' %>
+<% end %>
+
+<% if @photo.data['type'] == 'video' %>
+  <div class='title'>
     <%= link_to @album.name, album_path(@album) %> &raquo;
     <% if @photo.data['text'] %>
       <%= @photo.data['text'] %>
     <% end %>
-  </figcaption>
-  <% if @photo.data['type'] == 'video' %>
-    <%= videojs_rails sources: { mp4: @photo.data['video_standard'] }, width:"640", poster: @photo.data['image_standard'] %>
-  <% else %>
-    <%= image_tag @photo.data['image_standard'] %>
-  <% end %>
-</figure>
+  </div>
+  <%= videojs_rails sources: { mp4: @photo.data['video_standard'] }, width:"640", poster: @photo.data['image_standard'] %>
+<% else %>
+  <figure class='show-photo'>
+    <figcaption class='title'>
+      <%= link_to @album.name, album_path(@album) %> &raquo;
+      <% if @photo.data['text'] %>
+        <%= @photo.data['text'] %>
+      <% end %>
+    </figcaption>
+      <%= image_tag @photo.data['image_standard'] %>
+  </figure>
+<% end %>
