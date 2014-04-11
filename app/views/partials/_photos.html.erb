@@ -1,7 +1,10 @@
-<ul id='photos'>
-  <% photos.each_with_index do |photo, index| %>
-  <% index = index + 1 %>
-  <li class="<%= 'last' if index % 4 == 0 %>">
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'sortable' %>
+<% end %>
+
+<ul id='photos' data-update-url='<%= sort_album_photos_path(@album) if current_user and @album.user_id == current_user.id %>'>
+  <% photos.each do |photo| %>
+  <li id='photo-<%= photo.id %>'>
     <% if current_user and @album.user_id == current_user.id %>
       <div class='actions dropdown'>
         <button class='button clear'><%= fa_icon 'gear' %></button>
@@ -15,6 +18,9 @@
       <% if photo.data['type'] == 'video' %>
         <%= fa_icon 'play' %>
       <% end %>
+      <% if current_user and @album.user_id == current_user.id %>
+        <%= fa_icon 'arrows', class: 'handle' %>
+      <% end %>
       <%= image_tag(photo.data['image_low']) %>
 
       <% unless photo.data['text'].nil? %>
@@ -24,3 +30,19 @@
   </li>
   <% end %>
 </ul>
+
+<% if current_user and @album.user_id == current_user.id %>
+  <% content_for :javascripts do %>
+    <script type='text/javascript'>
+      $().ready(function(){
+        $('#photos').sortable({
+          handle: '.handle',
+          placeholder: "ui-state-highlight",
+          update: function() {
+            $.post($(this).data('update-url'), $(this).sortable('serialize'));
+          }
+        });
+      });
+    </script>
+  <% end %>
+<% end %>
