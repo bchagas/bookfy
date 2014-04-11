@@ -12,6 +12,9 @@
 
     <% end %>
     <%= link_to photo_path(@album, photo.id) do %>
+      <% if photo.data['type'] == 'video' %>
+        <%= fa_icon 'play' %>
+      <% end %>
       <%= image_tag(photo.data['image_low']) %>
 
       <% unless photo.data['text'].nil? %>
