@@ -22,7 +22,7 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
-    @current_album = Album.friendly_id.find(params[:album_id])
+    @current_album = Album.friendly_id.find(params[:album_id]) if controller_name == 'photos' and action_name == 'new'
     @user_photos.each do |media|
       @album.photos.build(photo_id: media.id)
     end
