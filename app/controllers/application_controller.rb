@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_photos
+    @current_album = Album.friendly_id.find(params[:album_id])
     max_id = params[:max_id]
     user_photos(max_id: max_id)
   end

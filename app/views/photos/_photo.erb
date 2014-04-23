@@ -1,10 +1,11 @@
 <%= f.fields_for "photos" do |photo| %>
   <ol class='photos'>
   <% @user_photos.each do |p| %>
-  <%= photo.input :data, as: :boolean, input_html: { id: p.id, value: "{\"type\":#{p.type.to_json},\"id\":#{p.id.to_json},\"caption\":#{p.caption.to_json},\"images\":#{p.images.to_json},\"videos\":#{p.videos.to_json}}", name: 'album[photos][data][]' }, label: "#{image_tag(p.images.thumbnail.url)}<p>#{truncate(p.caption ? p.caption.text : '', length: 63, omission: '...')}</p>".html_safe %>
+    <% unless @current_album.photos.any? { |ap| ap[:photo_id] == p.id } %>
+      <%= photo.input :data, as: :boolean, input_html: { id: p.id, value: "{\"type\":#{p.type.to_json},\"id\":#{p.id.to_json},\"caption\":#{p.caption.to_json},\"images\":#{p.images.to_json},\"videos\":#{p.videos.to_json}}", name: 'album[photos][data][]' }, label: "#{image_tag(p.images.thumbnail.url)}<p>#{truncate(p.caption ? p.caption.text : '', length: 63, omission: '...')}</p>".html_safe %>
+    <% end %>
   <% end %>
 </ol>
 <% end %>
 
-<%= link_to 'Load more photos', load_photos_path(max_id: @page_max_id), class: 'button load', remote: true, id: 'load-more' %>
-
+<%= link_to 'Load more photos', load_photos_path(max_id: @page_max_id, album_id: params[:album_id]), class: 'button load', remote: true, id: 'load-more' %>
