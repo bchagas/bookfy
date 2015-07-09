@@ -193,7 +193,7 @@ DEPENDENCIES
   omniauth-instagram
   pg
   pry
-  rails (= 3.2.13)
+  rails
   sass-rails (~> 3.2.3)
   thin
   uglifier (>= 1.0.3)

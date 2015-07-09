@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.1.2'
 
 gem 'activerecord-postgres-hstore'
 gem 'acts_as_list'
@@ -16,7 +16,7 @@ gem 'jquery-modal-rails'
 gem 'videojs_rails'
 gem 'newrelic_rpm'
 gem 'pg'
-gem 'rails', '3.2.13'
+gem 'rails'
 gem 'thin'
 
 group :assets do
