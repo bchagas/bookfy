@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.5.0'
 
 gem 'activerecord-postgres-hstore'
 gem 'acts_as_list'
