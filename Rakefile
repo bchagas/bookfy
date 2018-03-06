@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Instabooks::Application.load_tasks
+BookFy::Application.load_tasks

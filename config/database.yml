@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: instabooks_development
+  database: bookfy_development
   pool: 5
   username: brunochagas
   password:
@@ -9,7 +9,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: instabooks_test
+  database: bookfy_test
   pool: 5
   username: brunochagas
   password:
@@ -17,7 +17,7 @@ test:
 production:
   adapter: brunochagas
   encoding: unicode
-  database: instabooks_production
+  database: bookfy_production
   pool: 5
-  username: instabooks
+  username: bookfy
   password:

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Instabooks</title>
+    <title>BookFy</title>
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= yield :head %>
@@ -13,7 +13,7 @@
     <header>
       <div class='container'>
         <hgroup class='logo'>
-          <h1><%= link_to 'Instabooks', albums_path %></h1>
+          <h1><%= link_to 'BookFy', albums_path %></h1>
         </hgroup>
 
         <% if current_user %>
@@ -41,7 +41,7 @@
 
     <footer>
       <div class='container'>
-        Created by <a href='http://github.com/bchagas'>Bruno Chagas</a>. Questions? Tweet <a href='http://twitter.com/instabooksme'>@instabooksme</a>
+        Created by <a href='http://github.com/bchagas'>Bruno Chagas</a>. Questions? Tweet <a href='http://twitter.com/bookfyme'>@bookfyme</a>
       </div>
     </footer>
     <%= yield :javascripts %>
